@@ -1,0 +1,581 @@
+## Color note ## 81848b grigio d9dfea grigio 1 00a99d verde acqua 39475f blu c6b8a0 marrone sabbia #####################
+/**
+* Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+* http://cssreset.com
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+/*
+ol,
+ul {
+    list-style: none;
+}
+*/
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*****************************************************************************
+   Front-end style of webiste
+   Dev by: Gianluca Barranca
+   Site: www.gianlucabarranca.it
+   Github: giaba90
+*****************************************************************************/
+
+
+
+
+/* ==========================================================================
+   Home custom styles
+   ========================================================================== */
+/* ==========================================================================
+      Header styles
+   ========================================================================== */
+
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+    outline: 0;
+}
+
+.my_img {
+    padding-top: 10px;
+    margin-left: 85px;
+}
+
+header {
+    width: 100%;
+    background: #39475f;
+    height: 82px;
+    line-height: 50px;
+}
+
+.open_menu {
+    background: none;
+    position: absolute;
+    top: 15px;
+    right: 55px;
+    line-height: 45px;
+    padding: 0px 10px 0px 10px;
+    color: #fff;
+    border: 0;
+    font-size: 2.4em;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    z-index: 10000000000000;
+}
+
+.close_menu {
+    background: #39475f;
+    position: absolute;
+    top: 15px;
+    right: 65px;
+    padding: 0px 10px 0px 10px;
+    color: #fff;
+    border: 0;
+    height: 50px;
+    font-size: 2em;
+    line-height: 65px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    z-index: 10000000000000;
+}
+
+.menu {
+    z-index: 1000000;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    width: 100%;
+    background: #8993A5;
+    position: absolute;
+    text-align: center;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style-image: none;
+}
+
+.menu li {
+    display: block;
+    padding: 15px 0 15px 0;
+    border-bottom: #D9DFEA 1px solid;
+}
+
+.menu li:hover {
+    display: block;
+    background: white;
+    color: #39475f;
+    padding: 15px 0 15px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    margin: 0px;
+    color: #fff;
+}
+
+.menu ul li a:hover {
+    color: #39475f;
+    text-decoration: none;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu a:hover {
+    text-decoration: none;
+    color: white;
+}
+/* ==========================================================================
+   Section styles
+   ========================================================================== */
+
+.my_breadcrumb {
+    background-color: #fff;
+    margin-top: 14px;
+}
+
+.my_breadcrumb a {
+    color: #39475f;
+    font-family: "Ubuntu", helvetica;
+    font-size: 15px;
+}
+
+a.post-list {
+    color: #39475f;
+    font-family: "Ubuntu";
+    font-weight: bold;
+}
+
+a:hover.post-list {
+    color: #999999;
+    text-decoration: none;
+}
+
+span.post-meta {
+    color: #81848b;
+    font-family: "Ubuntu", helvetica;
+    font-size: 14px;
+}
+
+.post-list > li{
+    list-style: none;
+}
+
+#pagenavigation {
+    color: #39475f;
+    font-family: "Helvetica";
+    font-size: 14px;
+    margin: 16px 0px 10px 34px;
+}
+/* ==========================================================================
+      Footer styles
+   ========================================================================== */
+/* fix footer stick bug*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+}
+/**/
+
+footer {
+    background-color: #d9dfea;
+    border-top: 1px solid #c7cdd7;
+    height: 104px;
+}
+
+.copyleft {
+    color: #39475f;
+    font-family: "Ubuntu", helvetica;
+    font-size: 1.0em;
+}
+
+.copyleft a {
+    color: #39475f;
+}
+
+.social {
+    margin-left: 44px;
+}
+
+.social li {
+    float: left;
+    list-style: none;
+    margin-left: 16px;
+}
+
+.margin-top-10 {
+    margin-top: 32px;
+}
+/* ==========================================================================
+   Single Post custom styles
+   ========================================================================== */
+
+h1.post-title {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+}
+
+article.post-content {
+    margin: 20px 0 20px;
+}
+
+article.post-content  p {
+    font-family: Helvetica;
+    line-height: 1.28em;
+    font-size: 1.14em;
+}
+
+article.post-content p::selection {
+    background: #c6b8a0;
+}
+
+article.post-content  p::-moz-selection {
+    background: #c6b8a0;
+}
+
+article.post-content  p::-webkit-selection {
+    background: #c6b8a0;
+}
+
+article.post-content a {
+    font-family: "Ubuntu";
+    font-weight: bold;
+}
+
+article.post-content  a:hover {
+    color: #c6b8a0;
+}
+
+article.post-content h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica;
+    font-weight: lighter;
+}
+
+
+/*****************************************************************************
+   Back-end style of Blog Engine
+   Dev by: Gianluca Barranca
+   Site: www.gianlucabarranca.it
+   Github: giaba90
+*****************************************************************************/
+
+
+
+/* ==========================================================================
+   Login page custom styles
+   ========================================================================== */
+
+body.bg {
+    background-image: url("bg.jpg");
+}
+
+.btn-lg,
+.btn-group-lg > .btn {
+    border: 0px;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.form-content {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+}
+
+.form-control {
+    border: 0px solid #fff;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    opacity: 0.62;
+}
+
+form#login_form > .form-group > label {
+    color: #fff;
+    font-family: Helvetica;
+    font-size: 16px;
+}
+
+form#login_form > .form-group >::-webkit-input-placeholder,
+form#login_form > .form-group >::-moz-placeholder,
+:-ms-input-placeholder,
+form#login_form > .form-group >:-moz-placeholder {
+    /* Firefox 19+ */
+
+    color: #888;
+    font-family: Helvetica;
+    font-size: 16px;
+}
+
+form#login_form > button {
+    background: #00a99d;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+}
+
+.margin {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer2 {
+    margin-top: 30px;
+}
+
+.footer2 > a,
+.footer2 > p,
+.footer2 > p > a {
+    color: #fff;
+    font-family: "Ubuntu", Helvetica;
+    font-size: 12px;
+    font-weight: 100;
+}
+/* ==========================================================================
+   Admin area custom styles
+   ========================================================================== */
+/* ==========================================================================
+      New Post styles
+   ========================================================================== */
+
+.border-form-control {
+    background-color: #262f3f;
+    border: 2px solid #475774;
+    color: #fff;
+}
+
+.btn {
+    background-color: #262f3f;
+    border: 1px solid #262f3f;
+    border-radius: 0px;
+    color: #fff;
+    font-family: "Ubuntu", Helvetica;
+    padding: 10px;
+}
+
+.btn:hover, .btn:focus, .btn.focus{
+    color: #ffffff;
+}
+
+.form-box {
+    background-color: #39475f;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.category-checkbox {
+    background-color: #262f3f;
+    border: 1px solid;
+    border-color: transparent #475774 #475774;
+    color: #fff;
+    padding:15px 10px 0px;
+}
+
+.checkbox {
+    margin-top: 0px;
+}
+
+.checkbox label{
+    font-family: "Ubuntu" ,helvetica;
+}
+
+.delete{
+    background-color: #d43f3a;
+    border: 1px solid #d43f3a;
+}
+
+form#post_form {
+    padding-top: 10px;
+    height: 400px;
+}
+
+.form-control[readonly]{
+    background-color: #262f3f;
+}
+
+input[type="checkbox"] {
+    margin-top: 0px;
+}
+
+.label_form {
+    color: #fff;
+    font-family: "Ubuntu", Helvetica;
+    font-size: 14px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #475774;
+}
+
+.nav-tabs > li > a {
+    border-radius: 0px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    background-color: #262f3f;
+    border-color: #475774 #475774 transparent;
+    color: #fff;
+}
+
+.panel {
+    background-color: #39475f;
+    border: 0px;
+    border-radius: 0px;
+    margin-top: 50px;
+}
+
+.panel-default > .panel-heading {
+    background-image: none;
+    background-color: #39475f;
+    border-bottom: 2px solid #475774;
+}
+
+.save {
+    background-color: #00a99d;
+    border: 1px solid transparent;
+}
