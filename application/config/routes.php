@@ -39,9 +39,7 @@
 */
 $route['default_controller'] = 'post';
 
-
 $route['post/view'] = 'post/view'; //it's only sperimental
-
 
 $route['auth'] = 'auth';
 $route['auth/login'] = 'auth/login';

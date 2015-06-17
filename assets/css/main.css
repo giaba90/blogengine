@@ -1,5 +1,4 @@
-/* Color note ## 81848b grigio d9dfea grigio 1 00a99d verde acqua 39475f blu c6b8a0 marrone sabbia */
-
+## Color note ## 81848b grigio d9dfea grigio 1 00a99d verde acqua 39475f blu c6b8a0 marrone sabbia #####################
 /**
 * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
 * http://cssreset.com
@@ -93,7 +92,6 @@ video {
     font: inherit;
     vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
 
 article,
@@ -114,12 +112,11 @@ body {
     line-height: 1;
 }
 
-/*
 ol,
 ul {
     list-style: none;
 }
-*/
+
 blockquote,
 q {
     quotes: none;
@@ -138,12 +135,14 @@ table {
     border-spacing: 0;
 }
 
+
 /*****************************************************************************
    Front-end style of webiste
    Dev by: Gianluca Barranca
    Site: www.gianlucabarranca.it
    Github: giaba90
 *****************************************************************************/
+
 
 /* ==========================================================================
    Home custom styles
@@ -254,7 +253,6 @@ header {
     text-decoration: none;
     color: white;
 }
-
 /* ==========================================================================
    Section styles
    ========================================================================== */
@@ -287,17 +285,12 @@ span.post-meta {
     font-size: 14px;
 }
 
-.post-list > li {
-    list-style: none;
-}
-
 #pagenavigation {
     color: #39475f;
     font-family: "Helvetica";
     font-size: 14px;
     margin: 16px 0px 10px 34px;
 }
-
 /* ==========================================================================
       Footer styles
    ========================================================================== */
@@ -318,7 +311,6 @@ html {
     width: 100%;
     clear: both;
 }
-
 /**/
 
 footer {
@@ -350,7 +342,6 @@ footer {
 .margin-top-10 {
     margin-top: 32px;
 }
-
 /* ==========================================================================
    Single Post custom styles
    ========================================================================== */
@@ -364,27 +355,30 @@ article.post-content {
     margin: 20px 0 20px;
 }
 
-article.post-content p {
+article.post-content > p {
     font-family: Helvetica;
     line-height: 1.28em;
     font-size: 1.14em;
 }
 
-
-article.post-content p::-moz-selection {
+article.post-content >p::selection {
     background: #c6b8a0;
 }
 
-article.post-content p::-webkit-selection {
+article.post-content > p::-moz-selection {
     background: #c6b8a0;
 }
 
-article.post-content a {
+article.post-content > p::-webkit-selection {
+    background: #c6b8a0;
+}
+
+article.post-content > a {
     font-family: "Ubuntu";
     font-weight: bold;
 }
 
-article.post-content a:hover {
+article.post-content > a:hover {
     color: #c6b8a0;
 }
 
@@ -392,14 +386,6 @@ article.post-content h1, h2, h3, h4, h5, h6 {
     font-family: Helvetica;
     font-weight: lighter;
 }
-
-/*****************************************************************************
-   Back-end style of Blog Engine
-   Dev by: Gianluca Barranca
-   Site: www.gianlucabarranca.it
-   Github: giaba90
-*****************************************************************************/
-
 /* ==========================================================================
    Login page custom styles
    ========================================================================== */
@@ -435,10 +421,10 @@ form#login_form > .form-group > label {
     font-size: 16px;
 }
 
-form#login_form > .form-group > ::-webkit-input-placeholder,
-form#login_form > .form-group > ::-moz-placeholder,
+form#login_form > .form-group >::-webkit-input-placeholder,
+form#login_form > .form-group >::-moz-placeholder,
 :-ms-input-placeholder,
-form#login_form > .form-group > :-moz-placeholder {
+form#login_form > .form-group >:-moz-placeholder {
     /* Firefox 19+ */
 
     color: #888;
@@ -473,7 +459,6 @@ form#login_form > button {
     font-size: 12px;
     font-weight: 100;
 }
-
 /* ==========================================================================
    Admin area custom styles
    ========================================================================== */
@@ -518,8 +503,8 @@ form#login_form > button {
     margin-top: 0px;
 }
 
-.checkbox label {
-    font-family: "Ubuntu", helvetica;
+.checkbox label{
+    font-family: "Ubuntu" ,helvetica;
 }
 
 .delete {
@@ -562,6 +547,11 @@ input[type="checkbox"] {
     color: #fff;
 }
 
+.save {
+    background-color: #00a99d;
+    border: 1px solid transparent;
+}
+
 .panel {
     background-color: #39475f;
     border: 0px;
@@ -573,11 +563,6 @@ input[type="checkbox"] {
     background-image: none;
     background-color: #39475f;
     border-bottom: 2px solid #475774;
-}
-
-.save {
-    background-color: #00a99d;
-    border: 1px solid transparent;
 }
 
 .preview-link {
