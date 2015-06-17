@@ -73,6 +73,7 @@ $route['dashboard/media'] = 'admin/image';
 $route['image/upload'] = 'admin/image/do_upload';
 $route['dashboard/image/fillGallery'] = 'admin/image/fillGallery';
 $route['dashboard/image/deleteimg'] = 'admin/image/deleteimg';
+$route['dashboard/image/getinfo'] = 'admin/image/get_info';
 
 $route['p/index'] = 'post'; //route for pagination
 $route['p/index/login'] = 'auth/login';

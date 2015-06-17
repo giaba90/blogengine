@@ -46,7 +46,7 @@ class Image extends CI_Controller {
             }
 
             echo'<h4 style="color:green">Image uploaded Succesfully</h4>';
-           // exit;
+            // exit;
 
         }
 
@@ -76,17 +76,13 @@ class Image extends CI_Controller {
         $uploadpath = realpath(APPPATH.'../upload');
         $src = $uploadpath.'/'.$row->path;
         unlink($src);
-    //also delete it from the database
+        //also delete it from the database
         $this->db->where('id', $id);
         $this->db->delete('gallery');
 
         echo'<h4 style="color:green">This image deleted successfully</h4>';
-    //    exit;
+        //    exit;
 
     }
 
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
-
