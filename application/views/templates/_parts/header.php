@@ -19,6 +19,12 @@
   <link rel="stylesheet" href="<?php echo base_url().'assets/css/font-awesome/css/font-awesome.min.css';?>">
   <!-- Javascript -->
   <script src="<?php echo base_url().'assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js';?>"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script>
+        window.jQuery || document.write('<script src="<? echo base_url(); ?>assets/js/vendor/jquery-1.11.2.min.js"><\/script>')
+  </script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.50/jquery.form.min.js"></script>
+  <script src="<?php echo base_url().'assets/js/main.js';?>"></script>
 </head>
 
 <body>
