@@ -1,5 +1,4 @@
 <script src="<?php echo base_url().'assets/js/vendor/bootstrap.min.js';?>"></script>
-<script src="<?php echo base_url().'assets/js/vendor/masonry.pkgd.min.js';?>"></script>
 
 <script>
     $('.open_menu').popover();

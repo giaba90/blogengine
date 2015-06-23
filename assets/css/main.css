@@ -547,10 +547,7 @@ input[type="checkbox"] {
     color: #fff;
 }
 
-.save {
-    background-color: #00a99d;
-    border: 1px solid transparent;
-}
+
 
 .panel {
     background-color: #39475f;
@@ -565,6 +562,16 @@ input[type="checkbox"] {
     border-bottom: 2px solid #475774;
 }
 
+.save {
+    background-color: #00a99d;
+    border: 1px solid transparent;
+}
+
+/* ==========================================================================
+      Media Section styles
+   ========================================================================== */
+
+
 .preview-link {
     height: auto;
     left: 50%;
@@ -574,4 +581,42 @@ input[type="checkbox"] {
     transform: translate(-50%, -50%);
     width: 500px;
     z-index: 99999;
+}
+
+#gallery{
+    height: 500px;
+    padding: 10px;
+    background-color: #39475f; /*for debug */
+}
+
+/* ---- isotope ---- */
+
+.grid {
+    background: #DDD;
+}
+
+/* clear fix */
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+    width: 20%;
+}
+
+.grid-item {
+    float: left;
+    background-color: #262f3f;
+    margin: 5px;
+    padding: 10px;
+}
+
+.grid-item img {
+    display: block;
+    max-width: 100%;
 }

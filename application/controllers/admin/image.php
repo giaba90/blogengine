@@ -19,7 +19,7 @@ class Image extends CI_Controller
     public function index()
     {
         $this->load->view('templates/admin/header');
-        $this->load->view('/admin/upload_form', array('error' => ' '));
+        $this->load->view('/admin/display_media', array('error' => ' '));
         $this->load->view('templates/admin/footer');
     }
 
@@ -63,18 +63,16 @@ class Image extends CI_Controller
     {
         $uploadpath = base_url() . 'upload/';
         $rs = $this->upload_model->get_image_from_db();
+        $html ="<div class='grid-sizer'></div>";
         foreach ($rs as $row) {
-            $src = $uploadpath . '/' . $row['path'];
+            $src = $uploadpath.$row['path'];
             $alt = $row['name'];
-            $lid = $row['id'] . 'g';
+            $lid = $row['id'];
             $id_foto = $row['id'];
-            echo "<li class='thumbnail' id='$lid'>
-                            <span id='$id_foto' class='btn btn-info btn-block btn-delete'><i class='glyphicon glyphicon-remove'></i>&nbsp;&nbsp;&nbsp;Delete</span>
-                            <img class='img-gallery' src='$src' alt='$alt' style='height: 150px; width: 150px' data-toggle='modal' data-target='#imageModal' data-whatever='$id_foto'>
-                            <input type='text' class='' id='id_image' name='id_image' value='$src' readonly>
-                    </li>";
+            $html = $html."<div class='grid-item'><img id='$lid' src='$src' alt='$alt' data-toggle='modal' data-target='#imageModal' data-whatever='$id_foto'></div>";
 
         }
+        echo $html;
     }
 
     public function deleteimg()
@@ -100,9 +98,12 @@ class Image extends CI_Controller
      echo  "<div class='container-fluid'>
           <div class='row'>
             <div class='col-md-4'><img src='$src' alt='$alt' style='height: 150px; width: 150px'></div>
-            <div class='col-md-4 col-md-offset-4'>
+            <div class='col-md-8'>
             <span>Nome file: $image->path</span><br>
-            <span>Link file: </span><input type='text' class='' id='id_image' name='id_image' value='$src' readonly>
+            <span>Titolo: $image->name</span><br>
+            <span>Url: </span><input type='text' class='' id='id_image' name='id_image' value='$src' readonly><br>
+            <a href='$src'> Visualizza immagine</a> <span class='deleteimage' style='color: red'> Cancella definitivamente</span>
+            </div>
             </div>
           </div>";
     }

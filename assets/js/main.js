@@ -50,8 +50,9 @@ function loadgallery() {
         url: 'image/fillGallery',
         type: 'GET'
     }).done(function (data) {
-        $("#gallery").html(data);
+        $('.grid').html(data);
 
+        //delete after debug code
         var btnDelete = $("#gallery").find($(".btn-delete"));
         (btnDelete).on('click', function (e) {
             e.preventDefault();
@@ -74,37 +75,4 @@ function loadgallery() {
 function toggler(divId) {
     $("#" + divId).toggle();
 }
-
-
-$('#imageModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('whatever') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    var cct = $("input[name=csrf_test_name]").val();
-    $.ajax({
-        url: 'image/getinfo',
-        data: {'id': id, 'csrf_test_name': cct},
-        type: 'POST'
-    }).done(function(data){
-        //do something
-        modal.find('.modal-body').html(data)
-
-        var btnDelete = $("#imageModal").find($(".deleteimage"));
-        (btnDelete).on('click', function (e) {
-            e.preventDefault();
-            // get the token value
-            $("#" + id + "g").hide();
-            modal.hide();
-            $.ajax({
-                url: 'image/deleteimg',
-                data: {'id': id, 'csrf_test_name': cct},
-                type: 'POST'
-            }).done(function (data) {
-                $("#response").html(data);
-            });
-        });
-    });
-})
 
