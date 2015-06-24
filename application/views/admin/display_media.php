@@ -25,7 +25,10 @@
                 </div>
 
             </div><!-- close col 1 -->
-            <div class="col-md-4"></div>
+            <div class="col-md-4">
+
+                </div> <!-- close col 2 -->
+            </div> <!-- close row -->
         </div>
         </div>
     <div class="footer2 text-center">
@@ -59,9 +62,11 @@
 
 <script src="<?php echo base_url().'assets/js/vendor/masonry.pkgd.min.js';?>"></script>
 <script src="<?php echo base_url().'assets/js/vendor/imagesloaded.pkgd.min.js';?>"></script>
+<script src="<?php echo base_url().'assets/js/vendor/isotope.pkgd.min.js';?>"></script>
 
 
 <script>
+    
     var $grid = $('.grid').masonry({
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
@@ -72,7 +77,8 @@
         $grid.masonry();
     });
 
-    loadgallery();
+
+  loadgallery();
 
 
     $('#imageModal').on('show.bs.modal', function (event) {

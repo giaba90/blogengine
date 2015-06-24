@@ -67,9 +67,13 @@ class Image extends CI_Controller
         foreach ($rs as $row) {
             $src = $uploadpath.$row['path'];
             $alt = $row['name'];
-            $lid = $row['id'];
+            $date = $row['data'];
             $id_foto = $row['id'];
-            $html = $html."<div class='grid-item'><img id='$lid' src='$src' alt='$alt' data-toggle='modal' data-target='#imageModal' data-whatever='$id_foto'></div>";
+            $html = $html."<div class='grid-item'>
+            <img id='$id_foto' src='$src' alt='$alt' data-toggle='modal' data-target='#imageModal' data-whatever='$id_foto'>
+            <p class='name'>$alt</p>
+            <p class='date'>$date</p>
+            </div>";
 
         }
         echo $html;

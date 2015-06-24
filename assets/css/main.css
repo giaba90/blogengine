@@ -606,17 +606,21 @@ input[type="checkbox"] {
 
 .grid-sizer,
 .grid-item {
-    width: 20%;
+    width: 23%;
 }
 
 .grid-item {
     float: left;
     background-color: #262f3f;
     margin: 5px;
-    padding: 10px;
+    padding: 6px;
 }
 
 .grid-item img {
     display: block;
     max-width: 100%;
+}
+
+p.name,p.date{
+    display: none;
 }

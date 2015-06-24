@@ -5,9 +5,14 @@ class upload_model extends CI_Model
 
     public function insert($image, $name)
     {
+
+        $date = new DateTime('now');
+        $date = date_format($date, 'Y-m-d H:i:s');
+
         $data = array(
+            'name' => $name,
             'path' => $image,
-            'name' => $name
+            'data' => $date
         );
         $this->db->insert('gallery', $data);
     }
