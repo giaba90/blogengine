@@ -1,19 +1,8 @@
 <div class="container">
-    <div class="row">
-        <? echo form_open_multipart('image/upload', array('id' => '', 'class' => 'form-inline')); ?>
-        <div class="form-group" style="background: #f5f5f5">
-            <label for="">Choose image</label>
-            <?php echo form_upload('uploadedimages[]', '', 'multiple'); ?>
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-info btn-block" style="width: 200px;" value="Add">
-        </div>
-        <? echo form_close(); ?>
 
         <div class="row clear-fix">
             <div class="col-md-12">
                 <div id="response">
-
                 </div>
             </div>
         </div>
@@ -26,10 +15,25 @@
 
             </div><!-- close col 1 -->
             <div class="col-md-4">
+                <? echo form_open_multipart('image/upload', array('id' => 'image_upload', 'class' => 'form-inline')); ?>
+                <div class="form-group">
+                    <label for="">Choose image</label>
+                    <?php echo form_upload('uploadedimages[]', '', 'multiple'); ?>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info btn-block" style="width: 200px;" value="Add">
+                </div>
+                <? echo form_close(); ?>
+
+                <div id="sorts" class="button-group">
+                    <button class="original-order" data-sort-by="date">Ultimo caricato</button>
+                    <button class="name-order-increasing" data-sort-by="name">crescente</button>
+                    <button class="name-order-decreasing" data-sort-by="name">decrescente</button>
+                </div>
 
                 </div> <!-- close col 2 -->
             </div> <!-- close row -->
-        </div>
+
         </div>
     <div class="footer2 text-center">
         <p>Copyleft &copy; 2015 - Developed by <a href="http://www.gianlucabarranca.it">Gianluca Barranca</a></p>
@@ -60,13 +64,14 @@
     </div>
 </div>
 
-<script src="<?php echo base_url().'assets/js/vendor/masonry.pkgd.min.js';?>"></script>
-<script src="<?php echo base_url().'assets/js/vendor/imagesloaded.pkgd.min.js';?>"></script>
 <script src="<?php echo base_url().'assets/js/vendor/isotope.pkgd.min.js';?>"></script>
+<script src="<?php echo base_url().'assets/js/vendor/imagesloaded.pkgd.min.js';?>"></script>
+
 
 
 <script>
-    
+    loadgallery();
+/*
     var $grid = $('.grid').masonry({
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
@@ -77,31 +82,93 @@
         $grid.masonry();
     });
 
+*/
 
-  loadgallery();
+
+/*
+var $grid = $('.grid').isotope({
+    // options
+    percentPosition: true,
+    masonry: {
+        // use element for option
+        columnWidth: '.grid-sizer'
+    },
+    getSortData:{
+        name:'.name'
+    }
+});
+*/
+var $grid = $('.grid');
+    $grid.isotope({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        masonry: {
+            columnWidth: 50
+        },
+        getSortData: {
+            name:'.name',
+            date: function (itemElem) {
+                var date = $(itemElem).find('.date').text();
+                //alert(date);
+                return Date.parse(date);
+            }
+        }
+    });
 
 
-    $('#imageModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var id = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        var cct = $("input[name=csrf_test_name]").val();
+
+// bind sort button click
+
+    $('.original-order').on( 'click', function() {
+        var sortByValue = $(this).attr('data-sort-by');
+        $grid.isotope({
+            sortBy: sortByValue
+        });
+    });
+
+    $('.name-order-increasing').on( 'click', function() {
+        var sortByValue = $(this).attr('data-sort-by');
+        $grid.isotope({
+        sortBy: sortByValue,
+        sortAscending: true
+    });
+});
+
+    $('.name-order-decreasing').on( 'click', function() {
+        var sortByValue = $(this).attr('data-sort-by');
+        $grid.isotope({
+            sortBy: sortByValue,
+            sortAscending: false
+        });
+    });
+
+$('#image_upload').ajaxForm({
+    complete: function (xhr) {
+        // $("#response").html(xhr.responseText);
+        $('form').resetForm();
+        $(xhr.responseText).appendTo("#preview-link");
+        toggler('preview-link');
+        loadgallery();
+        $grid.isotope('layout');
+    }
+});
+
+
+    function loadgallery() {
         $.ajax({
-            url: 'image/getinfo',
-            data: {'id': id, 'csrf_test_name': cct},
-            type: 'POST'
+            url: 'image/fillGallery',
+            type: 'GET'
         }).done(function (data) {
-            //do something
-            modal.find('.modal-body').html(data)
+            $('.grid').html(data);
 
-            var btnDelete = $("#imageModal").find($(".deleteimage"));
+        //delete after debug code
+            var btnDelete = $("#gallery").find($(".btn-delete"));
             (btnDelete).on('click', function (e) {
                 e.preventDefault();
                 // get the token value
-                $("#" + id).parent().hide();
-                modal.hide();
+                var cct = $("input[name=csrf_test_name]").val();
+                var id = $(this).attr('id');
+                $("#" + id + "g").hide();
                 $.ajax({
                     url: 'image/deleteimg',
                     data: {'id': id, 'csrf_test_name': cct},
@@ -110,7 +177,40 @@
                     $("#response").html(data);
                 });
             });
+
         });
-    })
+    }
+
+$('#imageModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('whatever') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    var cct = $("input[name=csrf_test_name]").val();
+    $.ajax({
+        url: 'image/getinfo',
+        data: {'id': id, 'csrf_test_name': cct},
+        type: 'POST'
+    }).done(function (data) {
+        //do something
+        modal.find('.modal-body').html(data)
+
+        var btnDelete = $("#imageModal").find($(".deleteimage"));
+        (btnDelete).on('click', function (e) {
+            e.preventDefault();
+            // get the token value
+            $("#" + id).parent().hide();
+            modal.hide();
+            $.ajax({
+                url: 'image/deleteimg',
+                data: {'id': id, 'csrf_test_name': cct},
+                type: 'POST'
+            }).done(function (data) {
+                $("#response").html(data);
+            });
+        });
+    });
+});
 </script>
 

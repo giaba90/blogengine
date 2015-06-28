@@ -117,7 +117,7 @@ class Post_model extends CI_Model
      */
     public function  get_by_id($id)
     {
-        $this->db->select('post_id,post_title,post_content');
+        $this->db->select('post_id,post_title,post_content,post_slug');
         $query = $this->db->get_where('Posts', array('post_id' => $id));
         //$query = $this->db->get();
         return $query->row_array();

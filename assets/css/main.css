@@ -351,6 +351,12 @@ h1.post-title {
     font-weight: 400;
 }
 
+.post{
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+}
+
 article.post-content {
     margin: 20px 0 20px;
 }
@@ -584,15 +590,16 @@ input[type="checkbox"] {
 }
 
 #gallery{
-    height: 500px;
     padding: 10px;
     background-color: #39475f; /*for debug */
+    margin-top: 40px;
+    height: 100%;
 }
 
 /* ---- isotope ---- */
 
 .grid {
-    background: #DDD;
+
 }
 
 /* clear fix */
@@ -606,7 +613,7 @@ input[type="checkbox"] {
 
 .grid-sizer,
 .grid-item {
-    width: 23%;
+    width: 31%;
 }
 
 .grid-item {

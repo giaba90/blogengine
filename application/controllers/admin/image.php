@@ -63,7 +63,7 @@ class Image extends CI_Controller
     {
         $uploadpath = base_url() . 'upload/';
         $rs = $this->upload_model->get_image_from_db();
-        $html ="<div class='grid-sizer'></div>";
+        $html =" ";
         foreach ($rs as $row) {
             $src = $uploadpath.$row['path'];
             $alt = $row['name'];

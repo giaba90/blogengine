@@ -24,8 +24,7 @@
         window.jQuery || document.write('<script src="<? echo base_url(); ?>assets/js/vendor/jquery-1.11.2.min.js"><\/script>')
   </script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.50/jquery.form.min.js"></script>
-  <script src="<?php echo base_url().'assets/js/main.js';?>"></script>
-</head>
+  </head>
 
 <body>
   <!--[if lt IE 8]>

@@ -32,7 +32,7 @@ class upload_model extends CI_Model
 
     public function get_image_from_db()
     {
-        $this->db->select("*")->from('gallery');
+        $this->db->select("*,DATE_FORMAT(data, '%b %d %Y') as data", FALSE)->from('gallery');
         $query = $this->db->get();
         return $query->result_array();
 
