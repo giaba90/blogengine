@@ -15,11 +15,21 @@
 
             </div><!-- close col 1 -->
             <div class="col-md-4">
+                <div class="widget_image_upload">
                 <? echo form_open_multipart('image/upload', array('id' => 'image_upload', 'class' => 'form-inline')); ?>
                 <div class="form-group">
-                    <label for="">Choose image</label>
-                    <?php echo form_upload('uploadedimages[]', '', 'multiple'); ?>
+                 <label class="myLabel">
+                    <?php
+                 $data = array(
+                        'name' => 'uploadedimages[]',
+                        'multiple' => '',
+                        'onchange' =>'this.form.submit()'
+                    );
+                     echo form_upload($data); ?>
+                     <span><i class="fa fa-cloud-upload"></i> Uplaod File</span>
+                 </label>
                 </div>
+                    <br>
                 <div class="form-group">
                     <input type="submit" class="btn btn-info btn-block" style="width: 200px;" value="Add">
                 </div>
@@ -30,10 +40,10 @@
                     <button class="name-order-increasing" data-sort-by="name">crescente</button>
                     <button class="name-order-decreasing" data-sort-by="name">decrescente</button>
                 </div>
+                </div>
 
                 </div> <!-- close col 2 -->
             </div> <!-- close row -->
-
         </div>
     <div class="footer2 text-center">
         <p>Copyleft &copy; 2015 - Developed by <a href="http://www.gianlucabarranca.it">Gianluca Barranca</a></p>

@@ -631,3 +631,31 @@ input[type="checkbox"] {
 p.name,p.date{
     display: none;
 }
+
+.widget_image_upload {
+    background-color: #39475f;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+label.myLabel input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+/***** Example custom styling *****/
+.myLabel {
+    background-color: #00a99d;
+    border: 1px solid transparent;
+    margin: 2px;
+    color: #fff;
+    font-family: "Ubuntu", Helvetica;
+    padding: 10px;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1.33;
+}
+
+.myLabel:active {
+    background: #CCF;
+}
