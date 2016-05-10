@@ -16,14 +16,14 @@
             </div><!-- close col 1 -->
             <div class="col-md-4">
                 <div class="widget_image_upload">
-                <? echo form_open_multipart('image/upload', array('id' => 'image_upload', 'class' => 'form-inline')); ?>
+                <? echo form_open_multipart('', array('id' => 'image_upload', 'class' => 'form-inline')); ?>
                 <div class="form-group">
                  <label class="myLabel">
                     <?php
                  $data = array(
                         'name' => 'uploadedimages[]',
-                        'multiple' => '',
-                        'onchange' =>'this.form.submit()'
+                        'multiple' => ''
+
                     );
                      echo form_upload($data); ?>
                      <span><i class="fa fa-cloud-upload"></i> Uplaod File</span>
@@ -152,17 +152,43 @@ var $grid = $('.grid');
         });
     });
 
-$('#image_upload').ajaxForm({
-    complete: function (xhr) {
-        // $("#response").html(xhr.responseText);
-        $('form').resetForm();
+    var options = {
+        url:'image/upload',
+        type: 'post',
+        success: showResponse,
+        resertForm: true
+
+    };
+
+    // bind to the form's submit event
+    $('form').submit(function() {
+        // inside event callbacks 'this' is the DOM element so we first
+        // wrap it in a jQuery object and then invoke ajaxSubmit
+        $(this).ajaxSubmit(options);
+
+        // !!! Important !!!
+        // always return false to prevent standard browser submit and page navigation
+        return false;
+    });
+
+    /*
+    $('#image_upload').ajaxForm({
+        complete: function (xhr) {
+            // $("#response").html(xhr.responseText);
+            $('form').resetForm();
+            $(xhr.responseText).appendTo("#preview-link");
+            toggler('preview-link');
+            loadgallery();
+            $grid.isotope('layout');
+        }
+    });
+    */
+    function showResponse(xhr){
         $(xhr.responseText).appendTo("#preview-link");
         toggler('preview-link');
         loadgallery();
         $grid.isotope('layout');
     }
-});
-
 
     function loadgallery() {
         $.ajax({
